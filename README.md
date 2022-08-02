@@ -16,7 +16,7 @@ Dengan menggunakan GIT dan Github, kamu akan bisa bekerja dalam sebuat tim. Tuju
 Download dan jalankan hasil download GIT kamu seperti instal aplikasi pada umumnya.
 
 **Cek apakah instalasi berhasil**
-![image.png]( {} )
+![image.png]( {https://github.com/burhan-work/week-3/blob/85d7d4f0514271f3688fb67cb9cfdca3b7821704/aa.PNG})
 
 
 
