@@ -17,7 +17,11 @@ Download dan jalankan hasil download GIT kamu seperti instal aplikasi pada umumn
 
 **Cek apakah instalasi berhasil**
 
-![alt text](aa.png)
+![gambar 1](aa.PNG)
 
+**Setup Awal**
 
+![alt text](ab.PNG)
+
+**Cek apakah setup berhasil**
 
