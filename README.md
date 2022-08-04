@@ -286,3 +286,155 @@ Setelah membuat *branch* baru, lalu lakukan *commit*. Kemudian kita menyatukan p
     ![alt text](44.PNG)
 
     ![alt text](46.PNG)
+
+# JAVASCRIPT INTERMEDIET
+## Array dan Multidimensional Array
+Mengorganisasi data dan menyimpan data adalah *core concept* dari programming. Array adalah tipe data list order yang dapat menyimpan tipe data apapun di dalamnya. Array dapat menyimpan tipe data String, Number, Boolean, dan lainnya.
+
+Contoh array: 
+
+![alt text](18.PNG)
+
+![alt text](19.PNG)
+
+![alt text](00.PNG)
+
+### Membuat Array
+Array didefinisikan menggunakan square brackets
+
+![alt text](01.PNG)
+
+### Mengakses/Memanggil Array
+Array pada javascript dihitung dari index data ke-0. Data pertama adalah index ke-0.
+
+![alt text](02.PNG)
+
+![alt text](03.PNG)
+
+![alt text](04.PNG)
+
+![alt text](05.PNG)
+
+![alt text](06.PNG)
+
+![alt text](07.PNG)
+
+### Update Array
+Seperti tipe data dan variabel pada umumnya, kita dapat mengupdate data pada Array.
+
+![alt text](08.PNG)
+
+### Const in Array
+1. Jika menggunakan let, kita dapat mengubah array  dengan array baru dan konten nilai yang ada di dalam array dengan nilai lain
+2. Const tidak bisa melakukan update data. Namun pada Array kita dapat melakukan update konten nilai di dalam array (mutable).
+3. Yang tidak bisa adalah mengubah array dengan array yang baru jika menggunakan const
+
+![alt text](09.PNG)
+
+![alt text](1a.PNG)
+
+![alt text](1b.PNG)
+
+### Array *Properties*
+Array memiliki 5 properti yang sering digunakan yaitu *constructor*, *length*, *index*, *input*, dan *prototype*. *Properties* adalah fitur yang sudah disediakan oleh Javascript untuk memudahkan developer.
+
+**.length**
+
+*Length* akan mengembalikan nilai dari jumlah panjang data suatu array.
+
+![alt text](1c.PNG)
+
+**.prototype**
+
+*Prototype* memungkinkan kita untuk menambahkan properti dan metode baru ke array. *Prototype* adalah properti yang tersedia dengan semua objek JavaScript.
+
+**.constructor**
+
+Properti konstruktor mengembalikan fungsi yang membuat prototipe Array.
+
+### Array Method
+Array memiliki method atau biasa disebut built-in methods. Artinya Javascript sudah memudahkan kita dengan menyediakan function/method umum yang bisa kita gunakan. Kita tidak perlu membuat function lagi jika method yang kita butuhkan sudah tersedia.
+
+**Contoh Array Built-in Methods**
+
+1. **.push()** adalah method untuk menambahkan item  array pada urutan yang paling akhir.
+
+    ![alt text](a1.PNG)
+
+2. **.pop()** adalah method yang menghapus item array index terakhir.
+
+    ![alt text](a2.PNG)
+
+3. **.shift()** adalah method untuk menghapus item Array pada index pertama.
+
+    ![alt text](a3.PNG)
+
+4. **.unshift()** adalah method untuk menambahkan item Array pada index pertama.
+
+    ![alt text](a4.PNG)
+
+5. **.sort()** adalah method untuk mengurutkan secara Ascending atau Descending Alphanumeric.
+
+    ![alt text](a5.PNG)
+
+### *Looping* pada Array
+Array memiliki *built in methods* untuk melakukan *looping* yaitu **.map()** dan **.forEach()**. Kita harus tahu kapan menggunakan **.map()** dan juga **.forEach()**.
+1. **.forEach()** adalah method untuk melakukan looping pada setiap elemen array.
+
+    ![alt text](a6.PNG)
+
+2. **.map()** melakukan perulangan/looping dengan membuat array baru.
+
+    ![alt text](a7.PNG)
+
+Kita bisa lihat bahwa **.map()** dan **forEach()** sama-sama melakukan looping dan mengembalikan nilai baru dari operasi yang dilakukan. Perbedaannya adalah **.forEach** tidak dapat membuat Array baru dari hasil operasi yang ada dalam *looping*.
+
+![alt text](a8.PNG)
+
+Jadi, gunakan **.forEach()** jika hanya memerlukan *looping* untuk menampilkan saja atau menyimpan ke database. Gunakan **.map()** jika akan melakukan operasi pada array seperti yang dapat mengubah nilai array sebelumnya.
+
+### *Multidimensional* Array
+*Multidimensional* Array bisa dianalogikan dengan array *of* array (ada array di dalam array).
+
+Code script.js:
+
+![alt text](a9.PNG)
+
+Tampilan web page console.log:
+
+![alt text](b1.PNG)
+
+Bayangkan *multidimensional* ini seperti tabel. Baris pada tabel itu menunjukan jumlah array, kolom pada tabel itu menunjukan isi dari setiap array.
+
+![alt text](b2.PNG)
+
+**Akses index multidimensional array**
+
+![alt text](b3.PNG)
+
+Sama seperti array satu dimensi, *multidimensional* array juga dapat menggunakan *property* dan *Method built-in* Array.
+
+![alt text](b4.PNG)
+
+**Operation using map in multidimensional array**
+
+Code script.js:
+
+![alt text](b5.PNG)
+
+Tampilan pada console:
+
+![alt text](b6.PNG)
+
+**Looping For Multidimensional Array**
+
+![alt text](b7.PNG)
+
+Menggunakan *looping* **for**:
+
+![alt text](b8.PNG)
+
+Tampilan Pada Web Page:
+
+![alt text](b9.PNG)
+
