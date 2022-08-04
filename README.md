@@ -59,8 +59,7 @@ Bagaimana jika folder sudah ada sebelumnya? kita bisa gunakan perintah berikut i
 
 Tanda titik (**.**) artinya kita akan membuat *repository* pada direktori tempat kita berada saat ini.
 
-## GIT STATUS, GIT ADD, GIT COMMIT
-Buat 2-3 file code pada direktori yang telah dibuat.
+Buatlah 2 atau 3 file code pada direktori yang telah dibuat.
 
 ### GIT Status
 ![alt text](ba.PNG)
@@ -81,7 +80,7 @@ Terdapat 3 kondisi file pada GIT
 
 **Membuat Revisi Pertama pada GIT**
 
-### GIT Add
+### Git Add
 Setelah cek status dengan **git status**, selanjutnya kita ubah status *untrackted file* dan *unmodified* menjadi *modified*. Gunakan **git add**
 
 ![alt text](bb.PNG)
@@ -94,7 +93,7 @@ Setelah itu, cobalah ketik perintah **git status** lagi. Kondisi filenya sekaran
 
 ![alt text](bd.PNG)
 
-### GIT *Commit*
+### Git *Commit*
 Setelah itu, ubah kondisi file tersebut ke commited agar semua perubahan disimpan oleh Git.
 
 ![alt text](be.PNG)
@@ -121,7 +120,7 @@ Dengan demikian, revisi kedua sudah disipan oleh Git. Argumen **-m** tersebut un
 
 Sekarang Git sudah mencatat dua revisi yang sudah kita lakukan. Kita bisa ibaratkan revisi-revisi ini sebagai *checkpoint*. Apabila nanti ada kesalahan, kita bisa kembali ke *checkpoint* ini.
 
-### GIT Log
+### Git Log
 Dari dua revisi yang sudah dilakukan kita dapat melihat catatan log dari revisi-revisi tersebut dengan menggunakan perintah berikut ini:
 
 ![alt text](cc.PNG)
@@ -163,7 +162,6 @@ Melihat log dapat dilakukan dari berbagai sisi:
 
     ![alt text](de.PNG)
 
-## GIT CHECKOUT, GIT RESET, GIT REVERT
 Jika perubahan yang sedang dilakukan terjadi kesalahan dan kita ingin mengembalikan keadaan seperti sebelumnya maka itu bisa dilakukan.
 
 ### Membuat Revisi/Perubahan
@@ -229,20 +227,20 @@ Jika ingin mengembalikan *commit* jauh ke bawah, misal kita ingin kembali pada 3
 
 ![alt text](17.PNG)
 
-### GIT REVERT
+### Git Revert
 GIT Revert akan membatalkan semua perubahan yang ada tanpa menghapus *commit* terakhir. Jika menggunakan GIT Reset, *commit* terakhir akan hilang.
 
 ![alt text](21.PNG)
 
 ![alt text](24.PNG)
 
-### GIT CHECKOUT
+### Git Checkout
 ![alt text](22.PNG)
 
-### GIT RESET
+### Git Reset
 ![alt text](23.PNG)
 
-## GIT BRANCH
+## Git Branch
 GIt *branch* merupakan fitur yang wajib digunakan jika berkolaborasi dengan developer atau dalam tim dan untuk menghindari conflict code yang dikembangkan. Kita tidak boleh berkolaborasi dalam *project* di satu *branch* yang sama!
 
 ![alt text](25.PNG)
@@ -275,7 +273,7 @@ Untuk menghapus sebuah *branch*, gunakan perintah seperti berikut ini:
 
 ![alt text](42.PNG)
 
-## GIT MERGE
+## Git Merge
 Setelah membuat *branch* baru, lalu lakukan *commit*. Kemudian kita menyatukan pekerjaan ke **master** *file*/*branch* utama yaitu *branch* **master**. Untuk menyatukan *branch* cabang fitur yang telah kita kembangkan, gunakan perintah seperti berikut ini:
 1. Kita harus checkout dahulu ke branch master
 
@@ -438,3 +436,4 @@ Tampilan Pada Web Page:
 
 ![alt text](b9.PNG)
 
+## Object
