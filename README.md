@@ -162,3 +162,127 @@ Melihat log dapat dilakukan dari berbagai sisi:
     Hasilnya
 
     ![alt text](de.PNG)
+
+## GIT CHECKOUT, GIT RESET, GIT REVERT
+Jika perubahan yang sedang dilakukan terjadi kesalahan dan kita ingin mengembalikan keadaan seperti sebelumnya maka itu bisa dilakukan.
+
+### Membuat Revisi/Perubahan
+Sebelum diubah:
+
+![alt text](dg.PNG)
+
+Setelah diubah:
+
+![alt text](1.PNG)
+
+### Cek Perubahan
+![alt text](2.PNG)
+
+![alt text](3.PNG)
+
+### Membatalkan Perubahan-Belum *Stagged* dan Belum *Commited*
+Lakukan dengan perintah berikut ini:
+
+![alt text](4.PNG)
+
+Maka akan menjadi:
+
+![alt text](5.PNG)
+
+### Membatalkan Perubahan-Sudah *Stagged* namun Belum *Commited*
+![alt text](6.PNG)
+
+Jika case nya seperti diatas maka bisa dilakukan dengan perintah berikut ini: 
+
+![alt text](7.PNG)
+
+Maka akan menjadi:
+
+![alt text](8.PNG)
+
+Kondisi file sudah pada kondisi *Modified*. Selanjutnya kita lakukan proses yg sama sebelumnya, menggunakan **git checkout**.
+
+![alt text](11.PNG)
+
+Maka akan menjadi:
+
+![alt text](12.PNG)
+
+### Membatalkan Perubahan-Sudah *Commited*
+![alt text](13.PNG)
+
+Kita bisa mengembalikan kondisi ke *commit* sebelumnya dari *commit* terakhir menggunakan nomor *commit*. Terdapat 2 jenis case antara lain:
+1. Kita bisa mengembalikan *commit* hanya pada file tertentu.  
+2. Kita bisa mengembalikan *commit* untuk semua file.
+
+### Mengembalikan *Commit* pada File Tertentu
+![alt text](14.PNG)
+
+![alt text](15.PNG)
+
+### Mengembalikan *Commit* untuk Semua File
+Kita hanya perlu menggunakan nomor *commit* saja, tidak perlu menambahkan spesifik file. Berikut penggunaan perintahnya:
+
+![alt text](16.PNG)
+
+Jika ingin mengembalikan *commit* jauh ke bawah, misal kita ingin kembali pada 3 *commit* sebelumnya:
+
+![alt text](17.PNG)
+
+### GIT REVERT
+GIT Revert akan membatalkan semua perubahan yang ada tanpa menghapus *commit* terakhir. Jika menggunakan GIT Reset, *commit* terakhir akan hilang.
+
+![alt text](21.PNG)
+
+![alt text](24.PNG)
+
+### GIT CHECKOUT
+![alt text](22.PNG)
+
+### GIT RESET
+![alt text](23.PNG)
+
+## GIT BRANCH
+GIt *branch* merupakan fitur yang wajib digunakan jika berkolaborasi dengan developer atau dalam tim dan untuk menghindari conflict code yang dikembangkan. Kita tidak boleh berkolaborasi dalam *project* di satu *branch* yang sama!
+
+![alt text](25.PNG)
+
+Misalnya Amira akan mengerjakan fitur A dan Widia mengerjakan fitur B. Masing-masing fitur harus dibuat *branch* masing-masing.
+Tidak boleh mengganggu *branch* **master** yang sudah ter-*update*.
+
+Untuk membuat *branch*, gunakan perintah berikut ini:
+
+![alt text](31.PNG)
+
+Misalkan kita ingin membuat fitur *register*, jadi kita akan membuat *branch* baru.
+
+![alt text](32.PNG)
+
+![alt text](33.PNG)
+
+### Melihat *List Branch*
+![alt text](34.PNG)
+
+![alt text](35.PNG)
+
+### Pindah ke *branch* tertentu
+Untuk menuju ke dalam suatu *branch* tertentu, gunakan perintah seperti berikut ini:
+
+### *Delete Branch*
+Untuk menghapus sebuah *branch*, gunakan perintah seperti berikut ini:
+
+![alt text](41.PNG)
+
+![alt text](42.PNG)
+
+## GIT MERGE
+Setelah membuat *branch* baru, lalu lakukan *commit*. Kemudian kita menyatukan pekerjaan ke **master** *file*/*branch* utama yaitu *branch* **master**. Untuk menyatukan *branch* cabang fitur yang telah kita kembangkan, gunakan perintah seperti berikut ini:
+1. Kita harus checkout dahulu ke branch master
+
+    ![alt text](43.PNG)
+
+2. Lalu lakukan merge
+
+    ![alt text](44.PNG)
+
+    ![alt text](46.PNG)
