@@ -21,7 +21,24 @@ Download dan jalankan hasil download GIT kamu seperti instal aplikasi pada umumn
 
 **Setup Awal**
 
-![alt text](ab.PNG)
+Ada beberapa konfigurasi yang harus dupersiapakan sebelum mulai menggunakan Git, seperti name dan email.
+
+Silahkan lakukan konfigurasi dengan perintah berikut ini.
+
+![alt text](ae.PNG)
 
 **Cek apakah setup berhasil**
 
+Kemudian periksa konfigurasinya dengan perintah:
+
+![alt text](af.PNG)
+
+Apabila berhasil tampil seperti gambar berikut ini, berarti konfigurasi berhasil.
+
+![alt text](ab.PNG)
+
+
+
+Perlu untuk diingat bahwa email yang disetup harus sama dengan yang digunakan pada GITHUB.
+
+## 
