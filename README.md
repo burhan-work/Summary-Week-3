@@ -8,7 +8,7 @@ Tugasnya adalah mencatat setiap perubahan pada File (termasuk code yang kita bua
 
 Git adalah aplikasi yang dapat melacak setiap perubahan yang terjadi pada suatu folder atau file. Git biasanya digunakan oleh para programmer sebagai tempat penyimpanan file pemrograman mereka, karena lebih efektif. File -file yg disimpan menggunakan git akan terlacak seluruh perubahannya, termasuk siapa yang mengubah.
 
-**‘WHY’ should use GIT and Github?**
+**WHY should use GIT and Github?**
 
 Dengan menggunakan GIT dan Github, kamu akan bisa bekerja dalam sebuat tim. Tujuan besarnya adalah kamu bisa berkolaborasi mengerjakan proyek yang sama tanpa harus repot copy paste folder aplikasi yang terupdate. Kamu juga tidak perlu menunggu rekan dalam satu tim kamu menyelesaikan suatu program dahulu untuk berkolaborasi. Kamu bisa membuat file didalam projek yang sama atau membuat code di file yang sama dan menyatukannya saat sudah selesai.
 
@@ -85,7 +85,9 @@ Terdapat 3 kondisi file pada GIT
 Setelah cek status dengan **git status**, selanjutnya kita ubah status *untrackted file* dan *unmodified* menjadi *modified*. Gunakan **git add**
 
 ![alt text](bb.PNG)
+
 atau
+
 ![alt text](bc.PNG)
 
 Setelah itu, cobalah ketik perintah **git status** lagi. Kondisi filenya sekarang akan menjadi *staged*.
@@ -138,21 +140,24 @@ Hasilnya:
 
 Melihat log dapat dilakukan dari berbagai sisi:
 1. Melihat log dari nomor version/commit
-![alt text](cg.PNG)
+
+    ![alt text](cg.PNG)
 
     Hasilnya
 
     ![alt text](da.PNG)
 
 2. Melihat log dari file tertentu
-![alt text](db.PNG)
+
+    ![alt text](db.PNG)
 
     Hasilnya
 
     ![alt text](dc.PNG)
 
 3. Melihat log dari berdasarkan author
-![alt text](dd.PNG)
+
+    ![alt text](dd.PNG)
 
     Hasilnya
 
