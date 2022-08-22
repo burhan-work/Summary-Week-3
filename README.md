@@ -627,6 +627,7 @@ Tampilan pada Web Page:
 *Object* adalah sebuah tipe data pada variabel yang menyimpan nilai (properti) dan fungsi (*method*). Properti adalah data lengkap (ciri khas) dari sebuah *object* dan *method* adalah perilaku (*action*) dari sebuah *object*.
 
 ### Membuat Sebuah *Object*
+
 Sama seperti tipe data sebelumnya, *object* dapat di-*assign* ke dalam sebuah variabel.
 
 ***Object person***
@@ -644,7 +645,7 @@ Sama seperti tipe data sebelumnya, *object* dapat di-*assign* ke dalam sebuah va
 
 Sama seperti array, di dalam object kita dapat menyimpan properti dengan tipe data apapun.
 
-## Mengakses *Object* dan *Property Object*
+### Mengakses *Object* dan *Property Object*
 **Mengakses seluruh *object***
 
     let person = {
@@ -689,7 +690,7 @@ Kita juga bisa menggunakan ***bracket notation*** saat memanggil properti dari s
     console.log(person["name"]);
     // output: Burhan
 
-***Update Object***
+### *Update Object*
 
 Kita dapat melakukan *update* pada variabel dengan tipe data *object*.
 
