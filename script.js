@@ -215,27 +215,73 @@
 // console.log(number.oriB);
 // // output: 8
 
-let student = [
-    {
-        name : "burhan",
-        age : 25,
-        city : "Sumbawa"
-    },
+// let student = [
+//     {
+//         name : "burhan",
+//         age : 25,
+//         city : "Sumbawa"
+//     },
 
-    {
-        name : "abiem",
-        age : 24,
-        city : "Sumbawa"
-    },
+//     {
+//         name : "abiem",
+//         age : 24,
+//         city : "Sumbawa"
+//     },
 
-    {
-        name : "anto",
-        age : 25,
-        city : "Sumbawa"
-    }
-];
+//     {
+//         name : "anto",
+//         age : 25,
+//         city : "Sumbawa"
+//     }
+// ];
 
-// gunakan forEach jika object berada di dalam array
-student.forEach((listStudent) => {
-    console.log(listStudent);
-});
+// // gunakan forEach jika object berada di dalam array
+// student.forEach((listStudent) => {
+//     console.log(listStudent);
+// });
+
+// function countDown(number) {
+//     console.log(number);
+
+//     let nextNumber = number - 1;
+
+//     // jika kondisi ini bernilai false maka recursive berhenti
+//     if (nextNumber > 0) {
+//         countDown(nextNumber);
+//     }
+// }
+// countDown(5);
+
+// function pow(x, n) {
+//     if (n==1) {
+//         return x;
+//     } else {
+//         return x * pow(x, n - 1);
+//     }
+// }
+
+// console.log(pow(3, 4))
+
+// let regex = new RegExp("monkey");
+// console.log(regex.test("monkey"));
+
+// let regex1 = /monkey/;
+// console.log(regex1.test("monkey"));
+
+// let regex = /a/ig;
+//     let name = "Ahmad Fauzul Kabir";
+
+//     console.log(name.match(regex));
+
+// let regex = /\d\s\w\w\w\w\w\w\w/;
+// let name = "3 monkeys";
+
+// console.log(regex.test(name));
+
+let negasi = /[01]/;
+
+    console.log(negasi.test("010101010110"));
+    // output: false
+
+    // console.log(negasi.test("010101023"));
+    // output: true

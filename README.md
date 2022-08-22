@@ -900,3 +900,232 @@ Tampilan di console:
 Tampilan di console:
 
 ![](assets/na.PNG)
+
+## *Recursive*
+*Recursive* adalah fungsi yang memanggil dirinya sendiri sampai kondisi tertentu. *Recursive* biasanya digunakan untuk *case* matematika, fisika, kimia, dan yang berhubungan dengan kalkulasi.
+
+**Struktur *recursive***
+
+    function recursive() {
+        // ...
+        recursive();
+        // ...
+    }
+
+***Recursive* akan berhenti memanggil dirinya sendiri jika kondisi terpenuhi**
+
+    function recursive() {
+        if(condition) {
+            // stop calling itself
+            // ...
+        } else {
+            recursive();
+        }
+    }
+
+**Ciri-ciri *recursive***
+
+1. Fungsi *recursive* selalu memiliki kondisi yang menyatakan kapan fungsi tersebut berhenti. Kondisi ini harus dapat dibuktikan akan tercapai, karena jika tidak tercapai maka kita tidak dapat membuktikan bahwa fungsi akan berhenti, yang berarti algoritma kita tidak benar.
+2. Fungsi *recursive* selalu memanggil dirinya sendiri sambil mengurangi atau memecahkan data masukan setiap panggilannya. Hal ini penting diingat, karena tujuan utama dari *recursive* ialah memecahkan masalah dengan mengurangi masalah tersebut menjadi masalah-masalah kecil.
+
+**Contoh kasus rekursif**
+
+1. Fungsi *recursive* menghitung mundur *number*
+
+        function countDown(number) {
+            console.log(number);
+
+            let nextNumber = number - 1;
+
+            // jika kondisi ini bernilai false maka recursive berhenti
+            if (nextNumber > 0) {
+                countDown(nextNumber);
+            }
+        }
+        countDown(5);
+
+    Tampilan di console:
+
+    ![](assets/cou.PNG)
+
+2. Mencari hasil dari nilai pangkat dengan *recursive*
+
+        function pow(x, n) {
+            if (n==1) {
+                return x;
+            } else {
+                return x * pow(x, n - 1);
+            }
+        }
+
+        console.log(pow(3, 4));
+        // output: 81
+
+## Regex
+Regex adalah susunan/deretan karakter spesial yang menggambarkan pola untuk pencarian text pada sebuah string atau dokumen. Contoh kasus Regex:
+- Validasi input dari sebuah FORM,
+- Mencari keyword tertentu pada email atau halaman web,
+- Mencari IP address dalam kisaran tertentu, dll.
+
+### *Literals*
+*Literals* adalah konsep regex yang paling sederhana dimana kita membuat regex sesuai dengan *text* yang ingin kita cari/match atau mengandung text yang kita cari.
+
+### test()
+Javascript regex punya beberapa *built-in methods* untuk Regex. Sala satunya adalah **test()**. **test()** mengembalikan nilai BOOLEAN (TRUE/FALSE) untuk kecocokan sebuat text yang dicari.
+
+    let regex = new RegExp("monkey");
+    console.log(regex.test("monkey"));
+    // output: true
+
+    let regex1 = /monkey/;
+    console.log(regex1.test("monkey"));
+    // output: true
+
+    let regex = new RegExp("monkeys");
+    console.log(regex.test("monkey"));
+    // output: false
+
+    let regex1 = /monkeys/;
+    console.log(regex1.test("monkey"));
+    // output: false
+
+### Karakter Set
+Jika ingin mendapatkan hasil *searching* setidaknya mengandung 1 karakter yang dicari, kita bisa menggunakan karakter set untuk mencari minimal 1 karakter yang sesuai. Karakter set menggunakan *bracket square* []
+
+    let regex = new RegEExp("[a-z]");
+    console.log(regex.test("abc"));
+    // output: true
+
+    let regex1 = /[a-z]/;
+    console.log(regex.test("monkey"));
+    // output: true
+
+    let regex2 = /[1-5]/;
+    console.log(regex.test(7));
+    / output: false
+
+### match()
+**match()** sama seperti **test()** yaitu sebuah *method* bawaan dari javascript. Namun **match()** mengembalikan nilai array dari karakter yang *match*.
+
+    let regex = /a/;
+    let name = "Ahmad Fauzul Kabir";
+
+    console.log(name.match(regex));
+
+Tampilan di console:
+
+![](assets/re.PNG)
+
+Ada 2 *problem* yang harus di-*solve*:
+- regex hanya ada di index ke-3 untuk pencarian text ‘a’, padahal di awal ada ‘a’ juga.
+- hanya ada 1 karakter yang terbaca, padahal ada 4 karakter ‘a’ pada nama ‘Ahmad Fauzul Kabir’.
+
+***Problem* di atas dapat kita *solve* menggunakan Flags**
+
+### Flags
+Ada 2 **flags** yang sering digunakan:
+- i = Untuk menghandle case-sensitive. Tidak mempermasalahkan besar kecilnya sebuah karakter. Tidak membedakan antara A dan a.
+
+        let regex = /a/i;
+        let name = "Ahmad Fauzul Kabir";
+
+        console.log(name.match(regex));
+
+    Tampilan di console:
+
+    ![](assets/r1.PNG)
+
+- g = Untuk mencari ke dalam seluruh string yang ingin dicari. Jika tidak menggunakan flags g, maka sistem akan mengembalikan nilai array pertama yang ditemukan saja atau tidak melanjutkan pencarian.
+
+        let regex = /a/ig;
+        let name = "Ahmad Fauzul Kabir";
+
+        console.log(name.match(regex));
+
+    Tampilan di console:
+
+    ![](assets/r2.PNG)
+
+### Karakter *Set Short Syntax*
+Ada beberapa *short syntax* untuk kumpulan grup karakter:
+- \d : Seluruh number/digit character. Contohnya [0-9]
+- \w : Alphanumeric character (26 huruf abjad dan angka). Contohnya [A-Za-z0-9_]
+- \s : Whitespace character (space, tab, newline, and similar). Contohnya [\t\r\n\f\v]
+
+Misalnya kita membuat format regex: /d/s/w/w/w/w/w/w/w
+
+Ini berarti digit diikuti spasi lalu diikuti dengan 7 *word character*. Regex di atas akan *match* dengan string berikut **3 monkeys**.
+
+    let regex = /\d\s\w\w\w\w\w\w\w/;
+    let name = "3 monkeys";
+
+    console.log(regex.test(name));
+    // output: true
+
+### Negasi dari Karakter *set short syntax*
+Kita juga bisa menggunakan negasi dari ketiga karakter *set short syntax* sebelumnya:
+- \D : TIDAK mengandung seluruh number/digit character. Contohnya [^0-9]
+- \W : TIDAK mengandung Alphanumeric character (26 huruf abjad dan angka). Contohnya [^A-Za-z0-9_]
+- \S : TIDAK mengandung Whitespace character (space, tab, newline, and similar). Contohnya [^\t\r\n\f\v]
+
+*Icon set caret* (^) merupakan negasi dari *pattern* regex yang dibuat.
+
+    let negasi = /[01]/;
+
+    console.log(negasi.test("010101010110"));
+    // output: false
+
+    console.log(negasi.test("010101023"));
+    // output: true
+
+### *Quantifiers*
+- Sebelumnya kita membuat contoh regex seperti ini: \d\s\w\w\w\w\w\w\w
+- *Quantifiers* adalah membuat format diatas menjadi lebih baik dan rapih. *Quantifiers* ditandai dengan format *curly braces* {}.
+- \w{3} : akan match dengan 3 kata/word karakter
+- \w{4,7}: akan match minimum 4 kata/word character dan maksimal 7 kata/word character
+
+roa{3}r akan match jika kita melakukan pencarian string ‘roaaar’.
+
+Quantifiers bersifat greedy. Jika ada regex roa{3,7}r lalu ada pola yang mendekati seperti ‘roaaar’, ‘roaaaar’, dan ‘roaaaaaaa’. Maka yang didapatkan adalah a yang paling besar atau maksimal.
+
+### *Quantifiers* - 0 *or more*, 1 *or more*
+*Quantifiers* sebelumnya tidak bisa *handle* untuk kemiripan *text* yang dicari dengan regex yang dibuat. Untuk mengatasi ini kita bisa menggunakan asterik (*) atau plus (+).
+
+- (*) : Karakter yang diikuti dengan * dibolehkan tidak tampil sama sekali atau boleh tampil satu kali, dan seterusnya
+
+        let regex = /dav*id/;
+
+        console.log(regex.test("daid"));
+        // output: true
+
+- (+) : Karakter yang diikuti dengan + dibolehkan minimal tampil 1 kali dan seterusnya
+
+        let regex = /dav+id/;
+
+        console.log(regex.test("daid"));
+        // output: false
+
+        let regex = /wi+nalda/;
+
+        console.log(regex.test("wiiinalda"));
+        // output: true
+
+### *Anchor*
+Jika kita ingin mencari karakter yang persis detail sama, kita bisa menggunakan *Anchor*. Diawali dengan (^) dan diakhiri dengan ($).
+
+    let search = /^Belajar react js$/;
+
+    console.log(search.test("Belajar react js"));
+    // output: true
+
+    let search1 = /^Belajar react js$/;
+
+    console.log(search11.test("Belajar react"));
+    // output: false
+
+### *Alternation* (|)
+    let search = /^Belajar react js$|^React JS$/;
+
+    console.log(search.test("React JS"));
+    // output: true
+
