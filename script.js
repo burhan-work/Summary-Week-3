@@ -1,12 +1,56 @@
-let list = [
-    "belajar javascript",
-    "belajar matematika",
-    "membuat landing page"
-];
+let data = ["burhan", 19, true];
 
-list.unshift("kelas online programming");
+console.log(data);
 
-console.log(list);
+// const motor = ["suzuki", "yamaha", "honda"];
+//     motor[2] = ["hurley"];
+
+//     console.log(motor);
+
+// let team = ["manager", "front end", "back end"];
+// team[1] = "designer";
+
+// console.log(team);
+
+// let list = [
+//     "belajar javascript",
+//     "belajar matematika",
+//     "membuat landing page"
+// ];
+
+// list.push("kelas online programming");
+
+// console.log(list);
+
+// let list = [
+//     "belajar javascript",
+//     "belajar matematika",
+//     "membuat landing page"
+// ];
+
+// list.pop();
+
+// console.log(list);
+
+// let list = [
+//     "belajar javascript",
+//     "belajar matematika",
+//     "membuat landing page"
+// ];
+
+// list.shift();
+
+// console.log(list);
+
+// let list = [
+//     "belajar javascript",
+//     "belajar matematika",
+//     "membuat landing page"
+// ];
+
+// list.unshift("kelas online programming");
+
+// console.log(list);
 
 // const number = [2, 1, 8, 6, 7];
 //         number.sort();
