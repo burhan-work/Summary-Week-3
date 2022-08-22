@@ -369,25 +369,59 @@ Array memiliki method atau biasa disebut built-in methods. Artinya Javascript su
 
 4. **.unshift()** adalah method untuk menambahkan item Array pada index pertama.
 
-    ![alt text](a4.PNG)
+        let list = [
+            "belajar javascript",
+            "belajar matematika",
+            "membuat landing page"
+        ];
+
+        list.unshift("kelas online programming");
+
+        console.log(list);
+        // output: ["kelas online programming", "belajar javascript", "belajar matematika", "membuat landing page"]
 
 5. **.sort()** adalah method untuk mengurutkan secara Ascending atau Descending Alphanumeric.
 
-    ![alt text](a5.PNG)
+        const number = [2, 1, 8, 6, 7];
+        number.sort();
+
+        console.log(number);
+        //output : [1, 2, 6, 7, 8]
 
 ### *Looping* pada Array
 Array memiliki *built in methods* untuk melakukan *looping* yaitu **.map()** dan **.forEach()**. Kita harus tahu kapan menggunakan **.map()** dan juga **.forEach()**.
 1. **.forEach()** adalah method untuk melakukan looping pada setiap elemen array.
 
-    ![alt text](a6.PNG)
+        const motor = ["suzuki", "yamaha", "honda"];
+        motor.forEach(elemen => {
+            console.log(elemen);
+        });
+        // output:
+        // suzuki
+        // yamaha
+        // honda
 
 2. **.map()** melakukan perulangan/looping dengan membuat array baru.
 
-    ![alt text](a7.PNG)
+        let array = [1, 2, 3, 4, 5];
+        
+        let newArray = array.map(num => {
+            return num * 2;
+        });
 
-Kita bisa lihat bahwa **.map()** dan **forEach()** sama-sama melakukan looping dan mengembalikan nilai baru dari operasi yang dilakukan. Perbedaannya adalah **.forEach** tidak dapat membuat Array baru dari hasil operasi yang ada dalam *looping*.
+        console.log(newArray);
+        // output : [2, 4, 6, 8, 10]
 
-![alt text](a8.PNG)
+
+Kita bisa lihat bahwa **.map()** dan **.forEach()** sama-sama melakukan looping dan mengembalikan nilai baru dari operasi yang dilakukan. Perbedaannya adalah **.forEach** tidak dapat membuat Array baru dari hasil operasi yang ada dalam *looping*.
+
+    let array = [1, 2, 3, 4, 5];
+    newArray = array.forEach((num, index) => {
+        return array[index] = num * 2;
+    });
+
+    console.log(newArray);
+    // output : undefined
 
 Jadi, gunakan **.forEach()** jika hanya memerlukan *looping* untuk menampilkan saja atau menyimpan ke database. Gunakan **.map()** jika akan melakukan operasi pada array seperti yang dapat mengubah nilai array sebelumnya.
 
@@ -396,17 +430,25 @@ Jadi, gunakan **.forEach()** jika hanya memerlukan *looping* untuk menampilkan s
 
 Code script.js:
 
-![alt text](a9.PNG)
+    let inventory = [
+        ["Kaos", 5],
+        ["Jaket", 3],
+        ["Kemeja", 10],
+        ["Jeans", 5],
+        ["Sepatu", 3]
+    ];
 
-Tampilan web page console.log:
+    console.log(inventory);
 
-![alt text](b1.PNG)
+Tampilan pada console:
+
+![alt text](assets/b1.PNG)
 
 Bayangkan *multidimensional* ini seperti tabel. Baris pada tabel itu menunjukan jumlah array, kolom pada tabel itu menunjukan isi dari setiap array.
 
-![alt text](b2.PNG)
+![alt text](assets/b2.PNG)
 
-**Akses index multidimensional array**
+**Akses *index multidimensional* array**
 
     let inventory = [
         ["Kaos", 5],
@@ -438,19 +480,33 @@ Sama seperti array satu dimensi, *multidimensional* array juga dapat menggunakan
 
 Tampilan pada console:
 
-![alt text](b4.PNG)
+![alt text](assets/b4.PNG)
 
-**Operation using map in multidimensional array**
+***Operation using map in multidimensional array***
 
 Code script.js:
 
-![alt text](b5.PNG)
+    let inventory = [
+        ["Kaos", 5],
+        ["Jaket", 3],
+        ["Kemeja", 10],
+        ["Jeans", 5],
+        ["Sepatu", 3]
+    ];
+
+    // menghitung produk yang terjual (misal jumlah stok awal = 50 untuk semua produk)
+    inventory.map(dataInventory => {
+        let terjual = 50 - dataInventory[1];
+        dataInventory[2] = terjual;
+    });
+
+    console.table(inventory);
 
 Tampilan pada console:
 
-![alt text](b6.PNG)
+![alt text](assets/b6.PNG)
 
-**Looping For Multidimensional Array**
+***Looping For Multidimensional Array***
 
     let inventory = [
         ["Kaos", 5],
