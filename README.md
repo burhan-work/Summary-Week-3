@@ -408,9 +408,35 @@ Bayangkan *multidimensional* ini seperti tabel. Baris pada tabel itu menunjukan 
 
 **Akses index multidimensional array**
 
-![alt text](b3.PNG)
+    let inventory = [
+        ["Kaos", 5],
+        ["Jaket", 3],
+        ["Kemeja", 10],
+        ["Jeans", 5],
+        ["Sepatu", 3]
+    ];
+
+    console.log(inventory[0][0]);
+    // output: Kaos
+
+    console.log(inventory[2][0]);
+    // output: Kemeja
 
 Sama seperti array satu dimensi, *multidimensional* array juga dapat menggunakan *property* dan *Method built-in* Array.
+
+    let inventory = [
+        ["Kaos", 5],
+        ["Jaket", 3],
+        ["Kemeja", 10],
+        ["Jeans", 5],
+        ["Sepatu", 3]
+    ];
+
+    inventory.push(["Sandal", 3]);
+
+    console.log(inventory);
+
+Tampilan pada console:
 
 ![alt text](b4.PNG)
 
@@ -426,14 +452,61 @@ Tampilan pada console:
 
 **Looping For Multidimensional Array**
 
-![alt text](b7.PNG)
+    let inventory = [
+        ["Kaos", 5],
+        ["Jaket", 3],
+        ["Kemeja", 10],
+        ["Jeans", 5],
+        ["Sepatu", 3]
+    ];
 
-Menggunakan *looping* **for**:
+    inventory.forEach((baris) => {
+        baris.forEach((column) => {
+            console.log(column);
+        });
+    });
 
-![alt text](b8.PNG)
-
-Tampilan Pada Web Page:
+Tampilan di console:
 
 ![alt text](b9.PNG)
 
-## Object
+Menggunakan *looping* **for**:
+
+    let inventory = [
+        ["Kaos", 5],
+        ["Jaket", 3],
+        ["Kemeja", 10],
+        ["Jeans", 5],
+        ["Sepatu", 3]
+    ];
+
+    // loop untuk array luar
+    for (var i = 0, l1 = inventory.length; i < l1; i++) {
+        // loop untuk array dalam
+        for (var j = 0, l2 = inventory[i].length; j < l2; j++) {
+            // akses each element dari array dalam
+            document.write("<p>" + inventory[i][j] + "</p>");
+        }
+    }
+
+Tampilan Pada Web Page:
+
+![alt text](tam.PNG)
+
+## *Object*
+*Object* adalah sebuah tipe data pada variabel yang menyimpan nilai (properti) dan fungsi (*method*). Properti adalah data lengkap (ciri khas) dari sebuah *object* dan *method* adalah perilaku (*action*) dari sebuah *object*.
+
+### Membuat Sebuah *Object*
+Sama seperti tipe data sebelumnya, *object* dapat di-*assign* ke dalam sebuah variabel.
+
+***Object person***
+
+    let person = {};    //person is an empty object
+
+***Object person* dengan properti**
+
+    let person = {
+        name : "Burhan",
+        major : "Mathematic",
+        city : "Sumbawa"
+    };
