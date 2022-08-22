@@ -637,6 +637,265 @@ Sama seperti tipe data sebelumnya, *object* dapat di-*assign* ke dalam sebuah va
 
     let person = {
         name : "Burhan",
+        age : 25,
         major : "Mathematic",
         city : "Sumbawa"
     };
+
+Sama seperti array, di dalam object kita dapat menyimpan properti dengan tipe data apapun.
+
+## Mengakses *Object* dan *Property Object*
+**Mengakses seluruh *object***
+
+    let person = {
+        name : "Burhan",
+        age : 25,
+        major : "Mathematic",
+        'current address' : "Labuapi, Lombok"
+    }
+
+    console.log(person);
+
+Tampilan di console:
+
+![](assets/ob.PNG)
+
+Gunakan *single quote* (' ') pada *key* jika menggunakan spasi seperti ‘**current address**’.
+
+**Mengakses properti *object***
+
+    let person = {
+        name : "Burhan",
+        age : 25,
+        major : "Mathematic",
+        'current address' : "Labuapi, Lombok"
+    }
+
+    console.log(person.major);
+    // output: Mathematic
+
+Kita juga bisa menggunakan ***bracket notation*** saat memanggil properti dari sebuah *object*.
+
+    let person = {
+        name : "Burhan",
+        age : 25,
+        major : "Mathematic",
+        'current address' : "Labuapi, Lombok"
+    }
+
+    console.log(person["major"]);
+    // output: Mathematic
+
+    console.log(person["name"]);
+    // output: Burhan
+
+***Update Object***
+
+Kita dapat melakukan *update* pada variabel dengan tipe data *object*.
+
+- *Do's*
+
+    *Object* dapat meng-*update value* dari *key* yang sudah tersedia dan dapat menambahkan *key* dan *value* baru.
+
+      let person = {
+        name : "Burhan",
+        age : 25,
+        major : "Mathematic",
+        'current address' : "Labuapi, Lombok"
+      }
+
+      // update current key with the new value
+      person.age = 27;
+
+      // add new key and value
+      person.address = "Alas Barat, Sumbawa"
+
+      console.log(person);
+
+    Tampilan di console:
+
+    ![](assets/o.PNG)
+
+- *Dont's*
+
+    Jika menggunakan **const** pada variabel *object*, kita tidak bisa mengganti seluruh data *object* dengan *object* yang baru.
+
+        const person = {
+        name : "Burhanuddin",
+        age : 25,
+        major : "Mathematic",
+        'current address' : "Labuapi, Lombok"
+        }
+
+        person = {
+            fullname : "Burhanuddin"
+        }
+
+        console.log(person);
+
+    Tampilan di console:
+
+    ![](assets/er.PNG)
+
+    Jadi, jika ingin melakukan *update* unuk seluruh data *object* gunakan **let** pada saat deklarasi variabel.
+
+### *Delete Object Property*
+    let person = {
+        name : "Burhan",
+        age : 25,
+        major : "Mathematic",
+        'current address' : "Labuapi, Lombok"
+    }
+
+    // Delete property object age dari data people
+    delete person.age;
+
+    console.log(person);
+
+Tampilan di console:
+
+![](assets/del.PNG)
+
+### *Method*
+*Method* adalah *value* yang kita masukkan pada properti berupa *function*.
+
+Membuat *method* untuk *greeting* pada aplikasi *e*-*commerce* misalnya:
+
+    const greeting = {
+        welcome : function () {
+            return "Halo, selamat datang";
+        },
+        afterTransaction : function () {
+            return "Terima kasih sudah membeli";
+        }
+    };  // ada 2 method pada object greeting
+
+    console.log(greeting.welcome());
+    // output: Halo, selamat datang
+
+    console.log(greeting.afterTransaction());
+    // output: Terima kasih sudah membeli
+
+### *Nested Object*
+*Object* yang berasal dari turunan *object* lainnya (data *object* yang kompleks). Contohnya data article pada sebuah aplikasi berita:
+
+    const news = {
+        title : "AMMAN Coding Bootcamp",
+        description : "Beasiswa pelatihan coding untuk pemuda Sumbawa",
+        author : {
+            person: {
+                name : "Burhanuddin",
+                age : 25,
+                city : "Sumbawa"
+            }
+        }
+    };
+
+    console.log("News:", news.title);
+    console.log("Article publish by", news.author.person.name);
+
+Tampilan di console:
+
+![](assets/art.PNG)
+
+### *Pass by reference*
+*Pass by reference* artinya kita bisa mengubah data yang ada pada *object* melalui sebuah *function* dan memasukkan *object* sebagai parameter *function*.
+
+Kita mengubah data object number dengan sebuah **function changeData**:
+
+    let number = {
+        oriA : 3,
+        oriB : 4
+    };
+
+    function changeData (obj) {
+        obj.oriA = 6;
+        obj.oriB = 8;
+    };
+
+    changeData(number)
+
+    console.log(number.oriA);
+    // output: 6
+
+    console.log(number.oriB);
+    // output: 8
+
+### *Looping Object*
+Jika kita ingin menampilkan seluruh *object* properti. Kita bisa menggunakan *looping*. Jadi tidak perlu mengakses secara manual memanggil setiap propertinya.
+
+    for(let key in object) {
+        // ...
+    };
+
+Contohnya:
+
+    const news = {
+        title : "AMMAN Coding Bootcamp",
+        description : "Beasiswa pelatihan coding untuk pemuda Sumbawa",
+        author : {
+            person: {
+                name : "Burhanuddin",
+                age : 25,
+                city : "Sumbawa"
+            }
+        }
+    };
+
+    for(let data in news) {
+        console.log(news[data]);
+    };
+
+Tampilan di console:
+
+![](assets/aut.PNG)
+
+    const news = {
+        title : "AMMAN Coding Bootcamp",
+        description : "Beasiswa pelatihan coding untuk pemuda Sumbawa",
+        author : {
+            person: {
+                name : "Burhanuddin",
+                age : 25,
+                city : "Sumbawa"
+            }
+        }
+    };
+
+    for(let author in news.author.person) {
+        console.log(news.author.person[author]);
+    }
+
+Tampilan di console:
+
+![](assets/bu.PNG)
+
+### Array *of Object*
+    let student = [
+        {
+            name : "burhan",
+            age : 25,
+            city : "Sumbawa"
+        },
+
+        {
+            name : "abiem",
+            age : 24,
+            city : "Sumbawa"
+        },
+
+        {
+            name : "anto",
+            age : 25,
+            city : "Sumbawa"
+        }
+    ];
+
+    // gunakan forEach jika object berada di dalam array
+    student.forEach((listStudent) => {
+        console.log(listStudent);
+    });
+
+Tampilan di console:
+
+![](assets/na.PNG)

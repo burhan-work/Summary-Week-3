@@ -1,6 +1,6 @@
-let data = ["burhan", 19, true];
+// let data = ["burhan", 19, true];
 
-console.log(data);
+// console.log(data);
 
 // const motor = ["suzuki", "yamaha", "honda"];
 //     motor[2] = ["hurley"];
@@ -114,3 +114,128 @@ console.log(data);
 // ];
 
 // console.log(inventory);
+
+// let person = {
+//     name : "Burhan",
+//     age : 25,
+//     major : "Mathematic",
+//     'current address' : "Labuapi, Lombok"
+// }
+
+// console.log(person.major);
+
+// let person = {
+//     name : "Burhan",
+//     age : 25,
+//     major : "Mathematic",
+//     'current address' : "Labuapi, Lombok"
+//   }
+
+//   // update current key with the new value
+//   person.age = 27;
+
+//   // add new key and value
+//   person.address = "Alas Barat, Sumbawa"
+
+//   console.log(person);
+
+// const person = {
+//     name : "Burhanuddin",
+//     age : 25,
+//     major : "Mathematic",
+//     'current address' : "Labuapi, Lombok"
+//     }
+
+//     person = {
+//         fullname : "Burhanuddin"
+//     }
+
+//     console.log(person);
+
+// let person = {
+//     name : "Burhan",
+//     age : 25,
+//     major : "Mathematic",
+//     'current address' : "Labuapi, Lombok"
+// }
+
+// delete person.age;
+
+// console.log(person);
+
+// const greeting = {
+//     welcome : function () {
+//         return "Halo, selamat datang";
+//     },
+//     afterTransaction : function () {
+//         return "Terima kasih sudah membeli";
+//     }
+// };
+
+// console.log(greeting.welcome());
+
+// const news = {
+//     title : "AMMAN Coding Bootcamp",
+//     description : "Beasiswa pelatihan coding untuk pemuda Sumbawa",
+//     author : {
+//         person: {
+//             name : "Burhanuddin",
+//             age : 25,
+//             city : "Sumbawa"
+//         }
+//     }
+// };
+
+// console.log("News:", news.title);
+// console.log("Article publish by", news.author.person.name);
+
+// for(let data in news) {
+//     console.log(news[data]);
+// };
+
+// for(let author in news.author.person) {
+//     console.log(news.author.person[author]);
+// }
+
+// let number = {
+//     oriA : 3,
+//     oriB : 4
+// };
+
+// function changeData (obj) {
+//     obj.oriA = 6;
+//     obj.oriB = 8;
+// };
+
+// changeData(number)
+
+// console.log(number.oriA);
+// // output: 6
+
+// console.log(number.oriB);
+// // output: 8
+
+let student = [
+    {
+        name : "burhan",
+        age : 25,
+        city : "Sumbawa"
+    },
+
+    {
+        name : "abiem",
+        age : 24,
+        city : "Sumbawa"
+    },
+
+    {
+        name : "anto",
+        age : 25,
+        city : "Sumbawa"
+    }
+];
+
+// gunakan forEach jika object berada di dalam array
+student.forEach((listStudent) => {
+    console.log(listStudent);
+});
