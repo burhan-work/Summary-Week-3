@@ -1129,3 +1129,472 @@ Jika kita ingin mencari karakter yang persis detail sama, kita bisa menggunakan 
     console.log(search.test("React JS"));
     // output: true
 
+## OOP and Modules
+### *Object Oriented Programming* (OOP)
+*Object Oriented Programming* (OOP) adalah suatu paradigma dalam pemrograman. OOP adalah *principle*, jadi dapat diterapkan pada bahasa pemrograman selain Javascript seperti Ruby, Python, dan Java. Pada pembahasan sebelumnya, kita tahu bahwa tipe data dalam javascript terdiri dari 6 tipe data *primitive* (*value type*), di antaranya:
+
+- string
+- number
+- boolean
+- null
+- undefined
+- Symbol (ES6)
+
+Ada juga yang disbut *reference type*, yaitu:
+
+- Object
+- Function
+- Array
+
+Sebagai contoh, kita akan membuat sebuah *object person* yang terdiri dari *property* dan *method*.
+
+   let person = {
+        name : "burhan",
+        age : 25,
+        detail : function() {
+            return (this.name) + " berusia " + (this.age)
+        },
+    };
+
+    let person1 = {
+        name : "udin",
+        age : 25,
+        detail : function() {
+            return (this.name) + " berusia " + (this.age)
+        },
+    };
+
+    console.log(person.detail());
+    console.log(person1.detail());
+
+Tampilan di console:
+
+![](assets/bur.PNG)
+
+Saat ini OOP dapat dibuat menggunakan:
+
+- function
+
+        function person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.detail = function() {
+                return (this.name) + " berusia " + (this.age)
+            };
+        }
+
+        let person1 = new person("burhan", 25);
+        let person2 = new person("udin", 25);
+
+        console.log(person1.name);
+        console.log(person2.name);
+        console.log(person1.detail());
+        console.log(person2.detail());
+
+    Tampilan di console:
+
+    ![](assets/ud.PNG)
+
+- class (ES6)
+
+        class person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            detail() {
+                return (this.name) + " berusia " + (this.age)
+            };
+        };
+
+        let person1 = new person("burhan", 25);
+        let person2 = new person("udin", 25);
+
+        console.log(person1.name);
+        console.log(person2.name);
+        console.log(person1.detail());
+        console.log(person2.detail());
+
+    Tampilan di console:
+
+    ![](assets/ud.PNG)
+
+**This** adalah sebuah keyword khusus yang merujuk pada objek pemiliknya. Maksudnya adalah nilai dari **this** sangat bergantung pada dimana keyword **this** ini diletakkan atau dipanggil. Jika **this** digunakan dalam sebuah method maka ia merujuk pada objek pemiliknya. Jika **this** di dalam sebuah function maka ia merujuk pada global objek atau window. Dalam kasus function constructor dan class maka keyword this ini mengacu pada objek instannya.
+
+Ada 4 pilar dalam OOP, yaitu:
+
+1. Encapsulation
+
+    Encapsulation adalah cara untuk membatasi akses langsung ke properti atau method dari sebuah objek.
+
+        function grab (jarak) {
+            const pricePerKm = 5000;
+            this.jarak = jarak;
+            this.price = function () {
+                return this.pricePerKm * this.jarak;
+            }
+        }
+
+        let client = new grab(3);
+        client.pricePerKm = 10000;
+
+        console.log(client.price());
+        // output: 15000
+
+2. Abstraction
+
+    Abstraction adalah sebuah teknik untuk menyembunyikan detail tertentu dari sebuah objek/method dan hanya menampilkan fungsionalitas atau fitur penting dari objek tersebut. Terkadang method yang tidak memiliki body pada parent class. 
+    
+    Kita analogikan seperti ini. Setiap hari kamu berangkat ke kantor dengan mengendarai mobil pribadimu. Kamu sebenarnya tidak perlu tahu bagaimana mesin mobil itu bekerja sampai membuat mobilnya bisa bergerak atau bagaimana sistem pembakaran dalam mesinnya dan apa yang terjadi di dalam mesin ketika kamu menginjak pedal gas. Yang perlu kamu tahu adalah cara menyalakan mobil dan tau cara menyetir.
+
+        class hero {
+            constructor(hp) {
+                this.health = hp;
+            }
+
+            fight() {
+            this.health += 50;
+            return this.helath;
+            }
+
+            eat() {
+                this.health += 100;
+                return this.health;
+            }
+        }
+
+        let alpha = new hero(500);
+
+        console.log(alpha.fight());
+        console.log(alpha.eat());
+
+    Tampilan di console:
+
+    ![](assets/he.PNG)
+
+3. Inheritance
+
+    Inheritance dalam OOP adalah sebuah proses dimana sebuah class mewariskan property dan methodnya ke class lain atau childnya.
+
+        class people {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            };
+
+            detail() {
+                return (this.name) + " berusia " + (this.age);
+            };
+        };
+
+        class person extends people {
+            constructor(name, age, job) {
+                super(name, age);
+                this.job = job;
+            };
+        };
+
+        let client = new person("burhan", 25, "front end developer");
+
+        console.log(client.name);
+        console.log(client.job);
+        console.log(client.detail());
+
+    Dari kode di atas, berarti class people mewariskan property name dan age ke class person.
+
+    Tampilan di console:
+
+    ![](assets/job.PNG)
+
+4. Polymorpishm
+
+    Secara bahasa, polymorphism berasal dari dua kata, yaitu poly yang berarti banyak dan morphism yang berarti bentuk. Polymorpish ini juga dikenal pada konsep OOP yang berarti kemampuan dari suatu objek untuk memiliki banyak bentuk. Pada pilar sebelumnya yaitu inheritance, child class dapat mewarisi properti dan method dari parent class. Nah pada Polymorpishm, method yang diwariskan bisa kita ubah dengan behaviour yang berbeda menyesuaikan child class yang kita buat.
+
+        class animal {
+            animalSound() {
+                console.log("the animal makes a sound");
+            }
+        }
+
+        class cat extends animal {
+            animalSound() {
+                console.log("miaaww");
+            }
+        }
+
+        let persiaCat = new cat();
+        persiaCat.animalSound();
+
+    Tampilan di console:
+
+    ![](assets/mi.PNG)
+
+### Modules
+Modules adalah reusable code yang dapat di-export dari suatu file jaavascript dan di-import ke file javasript yang lain. Reusable code di sini adalah data yang dapaat digunakan berulang kali. Kita dapat melakukan export pada data apapun seperti string, object, array, number, class, hingga function/method.
+
+Berikut alasan kenapa harus membuat program mejadi modules:
+
+- Mudah menemukan dan mengatasi debug pada program
+- Membuat program menjadi komponen-komponen kecil sehingga code lebih mudah dibaca, dimengerti, dan mudah dimaintain
+- Reusable code, kita cukup membuat logic method pada suatu file lalu gunakan method tersebut pada file lainnya
+
+**Membuat Modules**
+
+Terdapat beberapa cara untuk membuat modules javascript, di antaranya:
+
+- Menggunakan Node JS
+- Menggunakan Common JS
+- Menggunakan ES6 Features
+
+**Preparation**
+
+Sebelum menggunakan export import untuk membuat modules, terdapat beberapa syarat yang harus disiapkan di antaranya:
+
+- Pada saat menjalankan modules, kita tidak bisa menggunakan url local komputer kita di browser
+- Harus menggunakan static-server
+- Gunakan wxtension Live Server pada Visual Studio Code
+- Kemudian pada file index.html, kita harus menambahkan script atribute type untuk modules
+
+    ![](assets/mod.PNG)
+
+**Export dan Import**
+
+Kita akan membuat modules untuk greeting pada toko online.
+
+- Siapkan file index.html
+
+    ![](assets/mod.PNG)
+
+- File script.js sebagai file javascript utama/main yang dipanggil pada file index.html
+
+    ![](assets/say.PNG)
+
+- Pada file greeting.js kita membuat 2 method/function yang reusable. Kita bisa gunakan method tersebut di setiap program aplikasi kita jika dibutuhkan. Agar function/method pada file greeting.js dapat digunakan, kita harus menambahkan keyword export pada setiap function.
+
+    ![](assets/gr.PNG)   
+
+    Memanggil method sayHi:
+
+    ![](assets/al.PNG)
+
+    Memanggil method sayThanks:
+
+    ![](assets/ale.PNG)
+
+    Cara lain melakukan export:
+
+    ![](assets/la.PNG)
+
+**Export as**
+
+Pada saat melakukan export, kita bisa mengganti nama function, variabel, dan data lainnya menggunakan keyword "as".
+
+File greeting.js
+
+![](assets/as.PNG)
+
+File script.js
+
+![](assets/ass.PNG)
+
+**Import as**
+
+Kita juga bisa mengubah langsung nama data yang kita import menggunakan keyword "as".
+
+File script.js
+
+![](assets/asi.PNG)
+
+**Export default**
+
+Export default dapat digunakan jika hanya ada 1 data atau export single class component.
+
+Pada file greeting.js
+
+    // export default
+    export default function sayHi(user) {
+        alert("Hallo " + (user));
+    }
+
+Pada file script.js
+
+    // import dari export default tidak menggunakan curly braces
+    import sayHi from './greeting.js';
+
+    sayHi("burhan");
+
+## Web Storage
+### Introduction
+Ada beberapa cara untuk menyimpan data pengguna seperti pencarian, artikel berita, dan lain-lain ke lokal (browser) menggunakan web storage seperti *cookies*, *local storage*, dan *session storage*. Data ini dimanfaatkan oleh situs web tersebut untuk merekam kebiasaan pengguna agar dapat memberikan rekomendasi sesuai preferensi si pengguna tersebut.
+
+**Apa itu *Cookies*?**
+
+*Cookies* adalah data kecil yang dikirim dari situs web dan disimpan di komputer kita oleh web browser saat kita menjelajah. Disebut data kecil karena maksimum data yang dapat disimpan dalam cookies adalah 4096 bytes (4 KB).
+
+Biasanya data yang disimpan di cookies adalah access token pengguna saat login atau data pencarian saat melakukan pencarian pada situs web tertentu. Hal ini yang biasanya dilakukan oleh situs pencarian untuk melacak pencarian kita dan menampilkan iklan yang berhubungan dengan pencarian kita sebelumnnya.
+
+Namun ada beberapa kekurangan yang perlu kita perhatikan mengenai cookies di antaranya:
+
+1. Setiap kita mengakses situs web, cookies juga kembali dikirim sehingga memperlambat aplikasi web kamu dengan mengirimkan data yang sama.
+2. Cookies disertakan pada setiap HTTP request, sehingga mengirimkan data yang tidak dienkripsi melalui internet, maka saat kita ingin menyimpan data dalam cookies kita harus mengenkripsinya terlebih dahulu.
+3. Cookies hanya dapat menyimpan data sebanyak 4KB.
+4. Lalu cookies juga memiliki tanggal kadaluarsa. Tanggal ini telah ditentukan sehingga web browser bisa menghapus cookies jika tanggal sudah kadaluarsa atau tidak dibutuhkan.
+
+***Local Storage* dan *Session Storage***
+
+Dengan memanfaatkan *local storage* dan *session storage*, kita dapat menyimpan data lebih besar yaitu 5MB per *page* tanpa mempengaruhi kinerja situs web. Namun, penting untuk diketahui agar kita tidak menyimpan data sensitif seperti *password* ke dalam *local storage* ataupun *session storage* untuk menghindari serangan pencurian data.
+
+### *Local Storage* - Menyimpan Data
+Pernahkah kita saat melakukan pencarian pada sebuah situs lalu situs tersebut menampilkan riwayat pencarian kita? Iya, data pencarian tersebut disimpan ke dalam local storage untuk diolah menjadi riwayat pencarian. Itulah salah satu contoh penerapan dari *local storage* pada aplikasi web.
+
+*Local storage* memiliki karakteristik sebagai berikut:
+
+1. Menyimpan data tanpa tanggal kadaluarsa.
+2. Data tidak akan dihapus ketika web browser ditutup dan akan tersedia seterusnya selama kita tidak menghapus data local storage pada web browser.
+3. Dapat menyimpan data hingga 5MB.
+4. Hanya dapat menyimpan data string.
+
+Untuk menyimpan data pada *local storage*, kita menggunakan *method* **setItem()** yang membutuhkan 2 parameter. Parameter pertama adalah *key* yang ingin kita simpan dan parameter kedua adalah data (*value*) dari *key* yang akan disimpan.
+
+    localStorage.setItem('key', value);
+
+### *Local Storage* - Mengambil Data
+Untuk mengambil data yang telah tersimpan pada *local storage*, kita dapat menggunakan *method* **getItem()** yang membutuhkan 1 parameter. Parameter tersebut adalah *key* dari data yang kita inginkan.
+
+    localStorage.getItem('key');
+
+### *Local Storage* - Menghapus Data
+Untuk menghapus data yang telah tersimpan pada *local storage*, kita dapat menggunakan *method* **removeItem()** yang membutuhkan 1 parameter. Parameter tersebut adalah *key* dari data yang ingin kita hapus.
+
+    // menghapus key tertentu
+    localStorage.removeItem("key");
+
+    // menghapus semua key
+    localStorage.clear();
+
+### *Session Storage* - Menyimpan Data
+Berbeda dengan *local storage*, walaupun masuk ke dalam web *storage*, data yang tersimpan pada *session storage* akan hilang ketika *session* dari sebuah laman berakhir.
+
+*Session storage* mempunyai beberapa karakteristik, yaitu:
+
+1. Data yang disimpan pada *session storage* akan terus tersimpan selama *browser* terbuka dan tidak hilang jika laman di-*reload*.
+2. Membuka banyak tab/window dengan URL yang sama, akan menciptakan *session storage* yang berbeda di masing-masing tab/window.
+3. Menutup tab/window akan mengakhiri *session* dan menghapus data yang tersimpan di *session storage* pada tab/window tersebut.
+4. Data yang tersimpan dalam *session storage* harus berbentuk string.
+5. Hanya dapat menyimpan data sebanyak 5MB.
+
+Pada umumnya kita memanfaatkan *session storage* untuk menyimpan data keranjang belanja pada sebuah situs *e*-*commerce*. Kita tentu pernah memasukkan beberapa barang ke keranjang belanja pada sebuah situs dalam keadaan belum login, namun setelah kita tutup window / tab nya, keranjang belanja yang tadi telah kita isi menjadi kosong lagi.
+
+Sama dengan *local storage*, sintaks untuk menyimpan data pada *session storage* adalah sebagai berikut:
+
+    // menambah session storage
+    sessionStorage.setItem('key', value);
+
+### *Session Storage* - Mengambil Data
+Sama seperti *local storage*, cara mendapatkan data dari *session storage* juga menggunakan **getItem()**, seperti berikut ini:
+
+    // mendapatkan session storage
+    sessionStorage.getItem('key');
+
+### *Session Storage* - Menghapus Data
+Syntax untuk menghapus data dari session storage ada 2, yaitu:
+
+    // menghapus session storage satu persatu berdasarkan key
+    sessionStorage.removeItem('key');
+
+    // menghapus seluruh session storage sekaligus sessionStorage.clear();
+
+## *Asynchronous*
+### *Introduction*
+Bahasa pemrograman JavaScript termasuk ke dalam *single*-*thread language* atau *synchronous* yang artinya hanya dapat mengeksekusi satu perintah pada satu waktu dan harus menunggu satu perintah tersebut selesai sebelum melanjutkan perintah selanjutnya. Untuk bisa mengeksekusi urutan perintah dari kode yang kita tulis ada 2 istilah yang digunakan pada JavaScript yaitu *synchronous* dan *asynchronous*.
+
+**Apa itu *synchronous*?**
+
+*Synchronous* adalah saat kita mengeksekusi perintah satu persatu dan berurutan. Analoginya seperti kita sedang mengantri di kasir atau loket. Ketika ada 1 perintah masuk maka dia akan dieksekusi terlebih dahulu. Jika perintah belum selesai dan sudah ada perintah baru maka perintah kedua (yang baru) akan mengantri sampai perintah 1 selesai. Proses seperti ini disebut *blocking* dan membuat perintah kita tereksekusi dengan lambat.
+
+Contoh :
+
+    console.log("antrian 1");
+    console.log("antrian 2");
+    console.log("antrian 3");
+
+    // output:
+    // antrian 1
+    // antrian 2
+    // antrian 3
+
+Kode di atas bersifat *synchronous* yaitu kode dijalankan baris per baris. Maka *output* kode di atas tereksekusi sesuai urutan perintahnya.
+
+Salah satu konsep lain di pemrograman adalah kebalikan dari *synchronous* yaitu *asynchronous*.
+
+**Apa itu *Asynchronous*?**
+
+*Asynchronous* yang biasa dikenal juga dengan sebutan *non*-*blocking* mengizinkan komputer kita untuk memproses perintah lain sambil menunggu suatu proses lain yang sedang berlangsung. Ini artinya kita bisa melakukan lebih dari 1 proses sekaligus (*multi*-*thread*). Eksekusi perintah dengan *asynchronous* tidak akan melakukan *blocking* atau menunggu perintah sebelumnya selesai. Jadi sambil menunggu kita bisa mengeksekusi perintah lain.
+
+Analoginya seperti saat kita mencuci baju di mesin cuci. Agar lebih produktif, sambil menunggu cucian selesai kita bisa melakukan pekerjaan lain misalnya menyapu dan mengepel. Artinya disini kita melakukan 3 proses sekaligus.
+
+**Menjalankan *Asynchronous* pada JavaScript**
+
+Ada beberapa cara untuk membuat proses asynchronous, yaitu:
+
+- **setTimeout(function, milliseconds)** digunakan untuk simulasi pemanggilan kembali proses *asynchronous* yang sedang/sudah selesai dijalankan. Pemanggilan hanya dilakukan 1 kali.
+
+    Contoh:
+
+        setTimeout(() => {
+        console.log("Cuci baju"); // proses asynchronous
+        }, 1000);
+
+        console.log("Menyapu");
+        console.log("Mengepel");
+        console.log("Memasak");
+
+        // 1000 ms = 1 second
+
+        // Output:
+        // Menyapu
+        // Mengepel
+        // Memasak
+        // Cuci baju
+
+- **setInterval(function, milliseconds)** digunakan untuk simulasi pemanggilan proses *asynchronous* yang sedang/sudah dijalankan dalam interval waktu tertentu. Pemanggilan dilakukan berkali-kali sesuai interval waktu yang ditentukan.
+
+    Contoh:
+
+        setInterval(() => {
+            console.log("Cuci baju"); // proses asynchronous
+        }, 3000);
+
+        console.log("Menyapu");
+        console.log("Mengepel");
+        console.log("Memasak");
+
+        // 3000 ms = 3 second
+
+        // Output:
+        // Menyapu
+        // Mengepel
+        // Memasak
+        // Cuci baju (x time)
+
+        // Cuci baju akan dijalankan setiap 3 detik sekali
+
+Kita bisa lihat bahwa hasilnya urutan pertama adalah Menyapu, Mengepel, Memasak, dan Cuci Baju. Ini terjadi karena cara kerja *asynchronous* tidak akan menunggu suatu perintah sampai selesai, namun langsung mengeksekusi perintah lainnya.
+
+**Menerapkan *Asynchronous* pada Aplikasi JavaScript**
+
+Dari contoh simulasi di atas, model eksekusi *asynchronous* lebih effisien dibandingkan *synchronous*. Namun, permasalahan terjadi saat menggunakan *asynchronous*, ada satu perintah yang bergantung pada output eksekusi *asynchronous* sebelumnya. Dengan kata lain fungsi berjalan kejar-kejaran (*race condition*), sehingga data yang kita inginkan menjadi kosong. 
+
+Sebagai contoh:
+
+    const user = getUser(); // fungsi async untuk mengambil data user dari API
+
+    console.log(user) // Output: null
+
+Dari kode di atas, ada kemungkinan user masih bernilai null. Hal ini terjadi karena fungsi **getUser()** adalah fungsi *asynchronous* yang belum selesai dijalankan, namun perintah **console.log()** sudah menuntut untuk dijalankan.
+
+Untuk mengatasi masalah tersebut, kita dapat menggunakan:
+
+1. Callback.
+2. Promises.
+3. Async / Await.

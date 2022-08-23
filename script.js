@@ -278,10 +278,144 @@
 
 // console.log(regex.test(name));
 
-let negasi = /[01]/;
+// let negasi = /[01]/;
 
-    console.log(negasi.test("010101010110"));
+    // console.log(negasi.test("010101010110"));
     // output: false
 
     // console.log(negasi.test("010101023"));
     // output: true
+
+    // let person = {
+    //     name : "burhan",
+    //     age : 25,
+    //     detail : function() {
+    //         return (this.name) + " berusia " + (this.age)
+    //     },
+    // };
+
+    // let person1 = {
+    //     name : "udin",
+    //     age : 25,
+    //     detail : function() {
+    //         return (this.name) + " berusia " + (this.age)
+    //     },
+    // };
+
+    // console.log(person.detail());
+    // console.log(person1.detail());
+
+    // function person(name, age) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.detail = function() {
+    //         return (this.name) + " berusia " + (this.age)
+    //     };
+    // }
+
+    // let person1 = new person("burhan", 25);
+    // let person2 = new person("udin", 25);
+
+    // console.log(person1.name);
+    // console.log(person2.name);
+    // console.log(person1.detail());
+    // console.log(person2.detail());
+
+    // class person {
+    //     constructor(name, age) {
+    //         this.name = name;
+    //         this.age = age;
+    //     }
+    //     detail() {
+    //         return (this.name) + " berusia " + (this.age)
+    //     };
+    // };
+
+    // let person1 = new person("burhan", 25);
+    // let person2 = new person("udin", 25);
+
+    // console.log(person1.name);
+    // console.log(person2.name);
+    // console.log(person1.detail());
+    // console.log(person2.detail());
+
+    // function grab (jarak) {
+    //     const pricePerKm = 5000;
+    //     this.jarak = jarak;
+    //     this.price = function () {
+    //         return pricePerKm * this.jarak;
+    //     }
+    // }
+
+    // let client1 = new grab(3);
+    // client1.pricePerKm = 10000;
+
+    // console.log(client1.price());
+
+    // class people {
+    //     constructor(name, age) {
+    //         this.name = name;
+    //         this.age = age;
+    //     };
+
+    //     detail() {
+    //         return (this.name) + " berusia " + (this.age);
+    //     };
+    // };
+
+    // class person extends people {
+    //     constructor(name, age, job) {
+    //         super(name, age);
+    //         this.job = job;
+    //     };
+    // };
+
+    // let client = new person("burhan", 25, "front end developer");
+
+    // console.log(client.name);
+    // console.log(client.job);
+    // console.log(client.detail());
+
+    // class animal {
+    //     animalSound() {
+    //         console.log("the animal makes a sound");
+    //     }
+    // }
+
+    // class cat extends animal {
+    //     animalSound() {
+    //         console.log("miaaww");
+    //     }
+    // }
+
+    // let persiaCat = new cat();
+    // persiaCat.animalSound();
+
+    // class hero {
+    //     constructor(hp) {
+    //         this.health = hp;
+    //     }
+
+    //     fight() {
+    //         this.health += 50;
+    //         return this.health;
+    //     }
+
+    //     eat() {
+    //         this.health += 100;
+    //         return this.health;
+    //     }
+    // }
+
+    // let alpha = new hero(500);
+
+    // console.log(alpha.fight());
+    // console.log(alpha.eat());
+
+
+// file script.js sebagai file javascript utama yang dipanggil pada html
+// gunakan keyword import dan diikuti nama function yang ada pada greeting.js
+import {hi, thanks} from './greeting.js';
+
+hi("burhan");
+thanks("burhan", "sepatu");
